@@ -1,0 +1,24 @@
+<app-header  id="top"></app-header>
+<section (window:resize)="onResize($event)">
+<section class="d-flex flex-wrap justify-content-center container mt-3">
+  <div class="music-card m-3" *ngFor="let track of products$ | async | paginate: { itemsPerPage: 30, currentPage: p , totalItems: pagination_data.total  };">
+    <a target="_blank" [href]="track.url">
+    <nz-card nzHoverable [nzCover]="coverTemplate" >
+          <nz-card-meta [nzTitle]="track?.name" [nzDescription]="track?.artist?.name"></nz-card-meta>
+        </nz-card>
+        <ng-template #coverTemplate>
+          <picture *ngFor="let img of track.image">
+            <source *ngIf="img.size == size" [media]="img.media" [srcset]="img['#text']">
+            <img *ngIf="img.size == size" [srcset]="img['#text']" alt="Chris standing up holding his daughter Elva">
+          </picture>
+        </ng-template>
+    </a>
+   </div>  
+</section>
+<footer class="pagination d-flex justify-content-end p-5">
+ <pagination-controls (pageChange)="pageChanged($event)" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+</footer>
+<div class="back-to-top-wrapper">
+  <a href="#top"  class="back-to-top-link" aria-label="Scroll to Top"><i nz-icon nzType="up" nzTheme="outline"></i></a>
+</div>
+</section>

@@ -1,0 +1,81 @@
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap');
+html, body {
+    overflow-x:hidden;
+    height: 100%;
+  }
+  html {
+    scroll-behavior: smooth !important;
+  }
+body {
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1C5777;
+  }
+  .no-event {
+    pointer-events: none;
+  }
+.background-img{
+  position: absolute;
+  z-index: 0;
+  top: 0%;
+  left: -14%;
+  width: 100%;
+}
+section, header{
+  z-index: 1000;
+  position: relative;
+}
+.main-bg {
+  position: relative;
+  background-image: url("./assets/images/wave.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -16rem;
+  background-attachment: fixed;
+
+  &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: #f9fcffd1;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.mobile {
+  display: none;
+}
+.desktop {
+  display: block;
+}
+@media (max-width: 1000px) {
+  .main-bg {
+    background-position: 0 -8rem;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}

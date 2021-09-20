@@ -1,0 +1,10 @@
+<header class="p-4 d-flex justify-content-between align-items-center">
+    <div>
+       <img (click)="changePage('')" routerLinkActive="router-link-active" class="logo" src="../../assets/icons/headphone.svg" alt="logo">
+       <span class="ms-3">ROOM4FM</span>
+    </div>
+     <nav class="d-flex">
+         <a class="pointer me-3" (click)="changePage('')"><h5 class="p-3">Home</h5> </a>
+         <a class="pointer" (click)="changePage('/search')"><h5 class="p-3">Search</h5></a>
+     </nav>
+</header>

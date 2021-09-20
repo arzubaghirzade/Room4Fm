@@ -1,0 +1,24 @@
+<section [ngStyle]="{height: results$ ? 'auto' : '93vh'}" class="search-section">
+  <app-header></app-header>
+  <form method="get" action="#" class="search_container">
+    <div class="search-hero m-3">
+      <input
+        [formControl]="search_word"
+        type="text"
+        placeholder="Type song name..."
+      />
+    </div>
+  </form>
+  <div *ngFor="let track of results$ | async | paginate: { itemsPerPage: 50, currentPage: p , totalItems: pagination_data['opensearch:totalResults'] };" class="m-3 d-flex flex-wrap  search-result">
+    <a target="_blank" [href]="track.url"  class="d-flex p-3">
+      <img src="../../assets/icons/music.svg" alt="music">
+      <div class="ms-3">
+        <h5 class="m-0">{{track?.name}}</h5>
+        <p class="m-0">{{track?.artist}}</p>
+      </div>
+    </a>
+  </div>
+  <footer *ngIf="results$" class="pagination d-flex justify-content-end p-5">
+    <pagination-controls (pageChange)="pageChanged($event)" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+   </footer>
+</section>
